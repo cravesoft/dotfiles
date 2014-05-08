@@ -1,6 +1,6 @@
 [user]
-	name = Olivier Crave
-	email = olivier.crave@parrot.com
+	name = cravesoft
+	email = cravesoft@gmail.com
 [merge]
 	tool = fugitive
 [push]
