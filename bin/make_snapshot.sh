@@ -9,6 +9,6 @@ then
     exit
 fi
         
-rsync -apv --progress --delete --stats --times --perms --filter "- .*/" --filter "- *.tmp" --filter "- *.iso" --filter "- lost+found/" "$SOURCE_PATH" "$DESTINATION_PATH"
+rsync -apv --progress --delete --stats --times --perms --filter "- *.tmp" --filter "- *.iso" --filter "- lost+found/" "$SOURCE_PATH" "$DESTINATION_PATH"
           
 echo "Done."
