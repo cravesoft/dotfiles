@@ -5,6 +5,7 @@ import qualified Data.Map as M
 import XMonad.Layout.Gaps
 import XMonad.Config.Desktop (desktopLayoutModifiers)
 import XMonad.Util.EZConfig(additionalKeys)
+import XMonad.Hooks.ICCCMFocus
 
 -- Declare config preferences
 config_terminal = "gnome-terminal" -- Default terminal to run
@@ -20,6 +21,7 @@ myConfig = gnomeConfig {
   terminal = config_terminal,
   layoutHook = myLayouts, 
   manageHook = myManageHook,
+  logHook = takeTopFocus,
   focusFollowsMouse = config_focusFollowsMouse
 } `additionalKeys` myKeys
 
@@ -35,4 +37,3 @@ myManageHook = composeAll (
 
 myLayouts = gaps [(U, 24)] $
     desktopLayoutModifiers (Tall 1 0.03 0.5 ||| Full ||| Mirror (Tall 1 (3/100) (1/2)))
-
