@@ -46,3 +46,6 @@
 [submodule "utils/stderred"]
 	path = utils/stderred
 	url = https://github.com/sickill/stderred.git
+[submodule "vim/bundle/colors-solarized"]
+	path = vim/bundle/colors-solarized
+	url = https://github.com/altercation/vim-colors-solarized.git
