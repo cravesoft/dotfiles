@@ -104,7 +104,7 @@ fi
 
 # When displaying prompt, write previous command to history file so that,
 # any new shell immediately gets the history lines from all previous shells.
-export PROMPT_COMMAND="history -a;history -c;history -r;$PROMPT_COMMAND"
+PROMPT_COMMAND='history -a'
 
 set completion-query-items 10000
 bind 'set completion-ignore-case on'
