@@ -5,7 +5,7 @@ import qualified Data.Map as M
 import XMonad.Layout.Gaps
 import XMonad.Config.Desktop (desktopLayoutModifiers)
 import XMonad.Util.EZConfig(additionalKeys)
-import XMonad.Hooks.ICCCMFocus
+--import XMonad.Hooks.ICCCMFocus
 import XMonad.Hooks.EwmhDesktops
 
 -- Declare config preferences
