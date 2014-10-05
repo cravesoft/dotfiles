@@ -84,7 +84,7 @@ function install_packages()
 "gdmap inkscape dos2unix moc gparted maven ruby graphviz doxygen python-dev "
 "automake gawk libprotobuf-dev apt-file libqt4-dev cifs-utils cgdb  unrar "\
 "sqlitebrowser gitk tig htop synaptic valgrind ubuntu-restricted-extras recode "\
-"blender"
+"blender sox"
     sudo apt-get update
     sudo apt-get install ${packages}
 }
