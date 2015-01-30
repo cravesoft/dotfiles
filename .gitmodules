@@ -30,22 +30,22 @@
 	url = git://github.com/vim-scripts/a.vim.git
 [submodule "vim/bundle/tabular"]
 	path = vim/bundle/tabular
-	url = https://github.com/godlygeek/tabular.git
+	url = git://github.com/godlygeek/tabular.git
 [submodule "vim/bundle/unimpaired"]
 	path = vim/bundle/unimpaired
-	url = https://github.com/tpope/vim-unimpaired.git
+	url = git://github.com/tpope/vim-unimpaired.git
 [submodule "vim/bundle/ctrlp"]
 	path = vim/bundle/ctrlp
-	url = https://github.com/kien/ctrlp.vim.git
+	url = git://github.com/kien/ctrlp.vim.git
 [submodule "vim/bundle/dwm"]
 	path = vim/bundle/dwm
-	url = https://github.com/spolu/dwm.vim.git
+	url = git://github.com/spolu/dwm.vim.git
 [submodule "vim/bundle/syntastic"]
 	path = vim/bundle/syntastic
-	url = https://github.com/scrooloose/syntastic.git
+	url = git://github.com/scrooloose/syntastic.git
 [submodule "utils/stderred"]
 	path = utils/stderred
-	url = https://github.com/sickill/stderred.git
+	url = git://github.com/sickill/stderred.git
 [submodule "vim/bundle/colors-solarized"]
 	path = vim/bundle/colors-solarized
-	url = https://github.com/altercation/vim-colors-solarized.git
+	url = git://github.com/altercation/vim-colors-solarized.git
