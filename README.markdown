@@ -22,7 +22,7 @@ Switch to the `~/dotfiles` directory, and fetch submodules:
     git submodule init
     git submodule update
 
-Install vim plugins
+Install vim plugins:
 
     vim +PluginInstall +qall
 
