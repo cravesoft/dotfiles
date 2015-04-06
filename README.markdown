@@ -22,6 +22,10 @@ Switch to the `~/dotfiles` directory, and fetch submodules:
     git submodule init
     git submodule update
 
+Install vim plugins
+
+    vim +PluginInstall +qall
+
 Set a local node prefix:
 
     echo prefix = ~/.node >> ~/.npmrc

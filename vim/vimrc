@@ -1,41 +1,88 @@
-" Enable pathogen
-call pathogen#infect()
-
-" Define leader mapping
-let mapleader = ","
-
-" No Vi Compatibility. That just sucks
+" Gotta be first
 set nocompatible
 
-" Turn on color syntax highlighting
-syntax enable
+filetype off
 
-" BOM often causes trouble
-set encoding=utf-8 nobomb
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-" Tell vim that lines following an indented line must have the same indentation as the previous line
-set autoindent
+Plugin 'gmarik/Vundle.vim'
 
-" Tell vim to automatically insert one extra level of indentation in some cases
-set smartindent
+" ----- Making Vim look good ------------------------------------------
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'tomasr/molokai'
+
+" ----- Vim as a programmer's text editor -----------------------------
+Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'scrooloose/syntastic'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-easytags'
+Plugin 'majutsushi/tagbar'
+Plugin 'kien/ctrlp.vim'
+Plugin 'vim-scripts/a.vim'
+
+" ----- Working with Git ----------------------------------------------
+Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-fugitive'
+
+" ----- Syntax plugins ------------------------------------------------
+Plugin 'digitaltoad/vim-jade'
+Plugin 'cakebaker/scss-syntax.vim'
+
+" ---- Extras/Advanced plugins ----------------------------------------
+" Highlight and strip trailing whitespace
+Plugin 'ntpeters/vim-better-whitespace'
+" Easily surround chunks of text
+Plugin 'tpope/vim-surround'
+" Align CSV files at commas, align Markdown tables, and more
+Plugin 'godlygeek/tabular'
+" Enable repeating supported plugin maps with "."
+Plugin 'tpope/vim-repeat'
+" Intensely orgasmic commenting
+Plugin 'scrooloose/nerdcommenter'
+" Tiled Window Management for Vim
+Plugin 'spolu/dwm.vim'
+"" Make gvim-only colorschemes work transparently in terminal vim
+Plugin 'godlygeek/csapprox'
+" Pairs of handy bracket mappings
+Plugin 'tpope/vim-unimpaired'
+
+call vundle#end()
+
+filetype plugin indent on
+" Only do this part when compiled with support for autocommands
+"if has("autocmd")
+"    " Enable file type detection
+"    filetype on
+"    " Enable loading the plugin files for specific file types
+"    filetype plugin on
+"
+"    " Disable expandtab for makefiles
+"    autocmd FileType make setlocal noexpandtab
+"endif
+
+" --- General settings ---
+
+" Tell vim to make backspace work like most other apps
+set backspace=indent,eol,start
+
+" Tell vim to show the line and column number of the cursor position, separated by a comma
+set ruler
 
 " Tell vim to display line numbers
 set number
 
-" Tell vim to highlight the current line in every window and update the highlight as the cursor moves
-set cursorline
-
-" Tell vim to try yo preserve column where cursor is positioned
-set nostartofline
-
-" Tell vim how many columns a tab counts for
-set tabstop=4
-
-" Indicate a fast terminal connection
-set ttyfast
+set showcmd
 
 " Tell vim to start searching when you type the first character of the search string
 set incsearch
+
+" Tell vim to highlight all matches (shown in a different color)
+set hlsearch
+
+" Tell vim no to highlight any matches
+"set nohls
 
 " Tell vim to create <FILENAME>.un~ file whenever a file is edited
 set undofile
@@ -49,75 +96,50 @@ set shiftwidth=4
 " Tell vim the number of spaces that a <Tab> counts for while performing editing operations
 set softtabstop=4
 
-" Tell vim to highlight all matches (shown in a different color)
-set hlsearch
+" Tell vim to insert space characters whenever the tab key is pressed
+" To enter a real tab character use Ctrl-V<Tab> key sequence
+set expandtab
 
-" Tell vim no to highlight any matches
-"set nohls
+" Turn on color syntax highlighting
+"syntax on
+syntax enable
+
+" Tell vim to highlight the current line in every window and update the highlight as the cursor moves
+set cursorline
+
+" Tell vim to try to preserve column where cursor is positioned
+set nostartofline
+
+" Tell vim how many columns a tab counts for
+set tabstop=4
+
+" Indicate a fast terminal connection
+set ttyfast
 
 " Tell vim to enable mouse support
 " To make mouse selection behave as if mouse=a was not enabled, press Shift while selecting with the mouse
 set mouse=a
 
-" Tell vim to insert space characters whenever the tab key is pressed
-" To enter a real tab character use Ctrl-V<Tab> key sequence
-set expandtab
+" Define leader mapping
+let mapleader = ","
 
-" Tell vim to show the line and column number of the cursor position, separated by a comma
-set ruler
+" BOM often causes trouble
+set encoding=utf-8 nobomb
+
+" Tell vim that lines following an indented line must have the same indentation as the previous line
+set autoindent
+
+" Tell vim to automatically insert one extra level of indentation in some cases
+set smartindent
 
 " Increase history from 20 default to 1000
 set history=1000
 
-" Convince Vim it can use 256 colors inside Gnome Terminal.
-" Needs CSApprox plugin
-set t_Co=256
-
-" Only do this part when compiled with support for autocommands
-if has("autocmd")
-    " Enable file type detection
-    filetype on
-    " Enable loading the plugin files for specific file types
-    filetype plugin on
-
-    " Disable expandtab for makefiles
-    autocmd FileType make setlocal noexpandtab
-endif
-
-if has("gui_gtk2")
-  set guifont=Bitstream\ Vera\ Sans\ Mono\ 9,Fixed\ 9
-  set guifontwide=Microsoft\ Yahei\ 9,WenQuanYi\ Zen\ Hei\ 9
-endif
-
 " Turn on omnicompletion
 "set ofu=syntaxcomplete#Complete
 
-" Define tagbar maps
-let g:tagbar_usearrows = 1
-nnoremap <leader>l :TagbarToggle<CR>
-
-" Configure solarized
-set background=dark
-let g:solarized_termtrans=1
-let g:solarized_termcolors=256
-let g:solarized_contrast="high"
-let g:solarized_visibility="high"
-colorscheme solarized
-call togglebg#map("<F5>")
-
-" Configure NERDTree
-map <F2> :NERDTreeToggle<CR>
-
-" Configure ctags
-"set tags=./tags;
-
-" Configure fugitive
-autocmd User fugitive
-  \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
-  \   nnoremap <buffer> .. :edit %:h<CR> |
-  \ endif
-autocmd BufReadPost fugitive://* set bufhidden=delete
-set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+" Sudo write with ,W
+noremap <leader>W :w !sudo tee %<CR>
 
 " Enable syntax highlighting for *.ejs
 au BufNewFile,BufRead *.ejs set filetype=html
@@ -126,28 +148,88 @@ au BufNewFile,BufRead *.ejs set filetype=html
 autocmd bufwritepost gvimrc source $MYGVIMRC
 autocmd bufwritepost vimrc source $MYVIMRC
 
-" Sudo write (,W)
-noremap <leader>W :w !sudo tee %<CR>
-
-" Toggle show tabs and trailing spaces (,c)
+" Toggle show tabs and trailing spaces with ,c
 set lcs=tab:›\ ,trail:·,eol:↴,nbsp:_
 set fcs=fold:-
 nnoremap <silent> <leader>c :set nolist!<CR>
 
-" Strip trailing whitespace (,ss)
-function! StripWhitespace ()
-    exec ':%s/ \+$//gc'
-endfunction
+" Strip trailing whitespace with ,ss
 noremap <leader>ss :call StripWhitespace ()<CR>
 
-" Paste toggle (,p)
+" Paste toggle with ,p
 set pastetoggle=<leader>p
 map <leader>p :set invpaste paste?<CR>
 
-" Clear last search (,cs)
+" Clear last search with ,cs
 map <leader>cs <Esc>:noh<CR>
 
-" Configure ctrlp
+if has("gui_gtk2")
+  set guifont=Bitstream\ Vera\ Sans\ Mono\ 9,Fixed\ 9
+  set guifontwide=Microsoft\ Yahei\ 9,WenQuanYi\ Zen\ Hei\ 9
+endif
+
+" Convince Vim it can use 256 colors inside Gnome Terminal.
+" Needs CSApprox plugin
+set t_Co=256
+
+" ----- Plugin-Specific Settings --------------------------------------
+
+" ----- altercation/vim-colors-solarized settings -----
+" Toggle this to "light" for light colorscheme
+set background=dark
+
+" Uncomment the next line if your terminal is not configured for solarized
+let g:solarized_termcolors=256
+
+let g:solarized_termtrans=1
+let g:solarized_contrast="normal"
+let g:solarized_visibility="high"
+
+" Set the colorscheme
+colorscheme solarized
+call togglebg#map("<F5>")
+
+
+" ----- jistr/vim-nerdtree-tabs -----
+" Open/close NERDTree Tabs with ,t
+nmap <silent> <leader>t :NERDTreeTabsToggle<CR>
+" To have NERDTree always open on startup
+let g:nerdtree_tabs_open_on_console_startup = 0
+
+
+" ----- scrooloose/syntastic settings -----
+let g:syntastic_error_symbol = '✘'
+let g:syntastic_warning_symbol = "▲"
+augroup mySyntastic
+  au!
+  au FileType tex let b:syntastic_mode = "passive"
+augroup END
+
+
+" ----- xolox/vim-easytags settings -----
+" Where to look for tags files
+set tags=./tags;,~/.vimtags
+" Sensible defaults
+let g:easytags_events = ['BufReadPost', 'BufWritePost']
+let g:easytags_async = 1
+let g:easytags_dynamic_files = 2
+let g:easytags_resolve_links = 1
+let g:easytags_suppress_ctags_warning = 1
+
+
+" ----- majutsushi/tagbar settings -----
+" Open/close tagbar with ,b
+nmap <silent> <leader>b :TagbarToggle<CR>
+" Uncomment to open tagbar automatically whenever possible
+"autocmd BufEnter * nested :call tagbar#autoopen(0)
+
+
+" ----- airblade/vim-gitgutter settings -----
+" Required after having changed the colorscheme
+hi clear SignColumn
+
+
+" ----- ctrlp settings -----
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'rc'
@@ -162,3 +244,12 @@ let g:ctrlp_prompt_mappings = {
   \ 'AcceptSelection("e")': [],
   \ 'AcceptSelection("t")': ['<cr>', '<c-m>'],
   \ }
+
+
+" ----- fugitive settings -----
+autocmd User fugitive
+  \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
+  \   nnoremap <buffer> .. :edit %:h<CR> |
+  \ endif
+autocmd BufReadPost fugitive://* set bufhidden=delete
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
