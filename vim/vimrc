@@ -153,9 +153,6 @@ set lcs=tab:›\ ,trail:·,eol:↴,nbsp:_
 set fcs=fold:-
 nnoremap <silent> <leader>c :set nolist!<CR>
 
-" Strip trailing whitespace with ,ss
-noremap <leader>ss :call StripWhitespace ()<CR>
-
 " Paste toggle with ,p
 set pastetoggle=<leader>p
 map <leader>p :set invpaste paste?<CR>
