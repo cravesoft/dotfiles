@@ -153,13 +153,6 @@ set lcs=tab:›\ ,trail:·,eol:↴,nbsp:_
 set fcs=fold:-
 nnoremap <silent> <leader>c :set nolist!<CR>
 
-" Paste toggle with ,p
-set pastetoggle=<leader>p
-map <leader>p :set invpaste paste?<CR>
-
-" Clear last search with ,cs
-map <leader>cs <Esc>:noh<CR>
-
 if has("gui_gtk2")
   set guifont=Bitstream\ Vera\ Sans\ Mono\ 9,Fixed\ 9
   set guifontwide=Microsoft\ Yahei\ 9,WenQuanYi\ Zen\ Hei\ 9
