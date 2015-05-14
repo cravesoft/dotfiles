@@ -77,14 +77,15 @@ function install_java()
 function install_packages()
 {
     local packages=\
-"xmonad gnome-panel dmenu vim-gnome cmake build-essential gdbserver "\
+"gnome-panel dmenu vim-gnome cmake build-essential gdbserver "\
 "python2.7 python-pip git-core mercurial subversion grc keepassx "\
 "flashplugin-installer filezilla audacity tree html-xml-utils curl "\
 "gimp vlc nginx wine tetrinet-client tetrinet-server irssi manpages-posix "\
 "gdmap inkscape dos2unix moc gparted maven ruby graphviz doxygen python-dev "
 "automake gawk libprotobuf-dev apt-file libqt4-dev cifs-utils cgdb  unrar "\
 "sqlitebrowser gitk tig htop synaptic valgrind ubuntu-restricted-extras recode "\
-"blender sox exuberant-ctags"
+"blender sox exuberant-ctags ncdu multitail pv i3 i3lock lxappearance " \
+"gtk-chtheme qt4-qtconfig"
     sudo apt-get update
     sudo apt-get install ${packages}
 }
@@ -140,9 +141,8 @@ function install_dotfiles()
     && ln -s ~/dotfiles/bash/aliases ~/.bash_aliases \
     && ln -s ~/dotfiles/vim ~/.vim \
     && ln -s ~/dotfiles/vim/vimrc ~/.vimrc \
-    && mkdir -p ~/.xmonad \
-    && ln -s ~/dotfiles/xmonad/xmonad.hs ~/.xmonad/xmonad.hs \
-    && ln -s ~/dotfiles/xmonad/dmenu_apps ~/.xmonad/dmenu_apps \
+    && mkdir -p ~/.i3 \
+    && ln -s ~/dotfiles/i3/config ~/.i3/config \
     && ln -s ~/dotfiles/git/config ~/.gitconfig \
     && ln -s ~/dotfiles/git/template ~/.git_template \
     && ln -s ~/dotfiles/git/ignore ~/.gitignore

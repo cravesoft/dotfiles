@@ -1,4 +1,4 @@
-My dotfiles (.bashrc, .vimrc, .xmonad, ...)
+My dotfiles (.bashrc, .vimrc, .i3, ...)
 
 Installation:
 
@@ -10,8 +10,7 @@ Create symlinks:
     ln -s ~/dotfiles/bash/aliases ~/.bash_aliases
     ln -s ~/dotfiles/vim ~/.vim
     ln -s ~/dotfiles/vim/vimrc ~/.vimrc
-    ln -s ~/dotfiles/xmonad/xmonad.hs ~/.xmonad/xmonad.hs
-    ln -s ~/dotfiles/xmonad/dmenu_apps ~/.xmonad/dmenu_apps
+    ln -s ~/dotfiles/i3/config ~/.i3/config
     ln -s ~/dotfiles/git/config ~/.gitconfig
     ln -s ~/dotfiles/git/template ~/.git_template
     ln -s ~/dotfiles/git/ignore ~/.gitignore
