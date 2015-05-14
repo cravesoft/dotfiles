@@ -76,18 +76,16 @@ function install_java()
 
 function install_packages()
 {
-    local packages=\
-"gnome-panel dmenu vim-gnome cmake build-essential gdbserver "\
-"python2.7 python-pip git-core mercurial subversion grc keepassx "\
-"flashplugin-installer filezilla audacity tree html-xml-utils curl "\
-"gimp vlc nginx wine tetrinet-client tetrinet-server irssi manpages-posix "\
-"gdmap inkscape dos2unix moc gparted maven ruby graphviz doxygen python-dev "
-"automake gawk libprotobuf-dev apt-file libqt4-dev cifs-utils cgdb  unrar "\
-"sqlitebrowser gitk tig htop synaptic valgrind ubuntu-restricted-extras recode "\
-"blender sox exuberant-ctags ncdu multitail pv i3 i3lock lxappearance " \
-"gtk-chtheme qt4-qtconfig"
+
     sudo apt-get update
-    sudo apt-get install ${packages}
+    sudo apt-get install -y apt-file audacity automake blender build-essential \
+        cgdb cifs-utils cmake curl dos2unix doxygen exuberant-ctags gawk \
+        gdbserver gdmap gimp git gitk gparted graphviz grc gtk-chtheme \
+        html-xml-utils htop i3 i3lock inkscape irssi keepassx libprotobuf-dev \
+        libqt4-dev lxappearance manpages-posix maven mercurial moc multitail \
+        ncdu nginx python2.7 python-dev python-pip pv qt4-qtconfig recode ruby \
+        sox sqlitebrowser subversion synaptic tig tmux tree \
+        ubuntu-restricted-extras unrar valgrind vim-gnome vlc
 }
 
 function setup_node()
@@ -177,4 +175,4 @@ install_dotfiles
 
 setup_python
 setup_node
-setup_wine
+#setup_wine
