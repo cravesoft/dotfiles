@@ -85,7 +85,7 @@ function install_packages()
         libqt4-dev lxappearance manpages-posix maven mercurial moc multitail \
         ncdu nginx python2.7 python-dev python-pip pv qt4-qtconfig recode ruby \
         sox sqlitebrowser subversion synaptic tig tmux tree \
-        ubuntu-restricted-extras unrar valgrind vim-gnome vlc
+        ubuntu-restricted-extras unrar valgrind vim-gnome vlc wajig
 }
 
 function setup_node()
