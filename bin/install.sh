@@ -79,8 +79,8 @@ function install_packages()
 
     sudo apt-get update
     sudo apt-get install -y apt-file audacity automake blender build-essential \
-        cgdb cifs-utils cmake curl dos2unix doxygen exuberant-ctags gawk \
-        gdbserver gdmap gimp git gitk gparted graphviz grc gtk-chtheme \
+        cgdb cifs-utils cmake colorgcc curl dos2unix doxygen exuberant-ctags \
+        gawk gdbserver gdmap gimp git gitk gparted graphviz grc gtk-chtheme \
         html-xml-utils htop i3 i3lock inkscape irssi keepassx libprotobuf-dev \
         libqt4-dev lxappearance manpages-posix maven mercurial moc multitail \
         ncdu nginx python2.7 python-dev python-pip pv qt4-qtconfig recode ruby \

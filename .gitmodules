@@ -1,9 +1,6 @@
 [submodule "utils/gnome-terminal-colors-solarized"]
 	path = utils/gnome-terminal-colors-solarized
 	url = git://github.com/sigurdga/gnome-terminal-colors-solarized.git
-[submodule "utils/stderred"]
-	path = utils/stderred
-	url = git://github.com/sickill/stderred.git
 [submodule "vim/bundle/Vundle.vim"]
 	path = vim/bundle/Vundle.vim
 	url = git://github.com/gmarik/Vundle.vim
