@@ -133,8 +133,6 @@ else
     export TERM='xterm-color'
 fi
 
-export LD_PRELOAD="$HOME/dotfiles/utils/stderred/build/libstderred.so${LD_PRELOAD:+:$LD_PRELOAD}"
-
 export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 
 if [ `id -u` != '0' ]; then
