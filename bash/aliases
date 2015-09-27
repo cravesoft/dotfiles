@@ -101,6 +101,7 @@ function pcmto() {
         xargs -i sox -t raw -r $rate -e $encoding -b $bitdepth -c $channels "{}.$in" "{}.$out";
     fi
 }
+
 function pcmfrom() {
     local in=wav
     local out=pcm
@@ -146,11 +147,9 @@ function pcmfrom() {
     fi
 }
 
-alias cgdbpc='cgdb -d gdb -x $HOME/dotfiles/utils/pal_thread.gdb -x $HOME/dotfiles/utils/stl-views-1.0.3.gdb'
-
 # Take a screenshot and save it on the desktop
 function sshot() {
-    DATE=`date +%Y-%m-%d\ %H-%M`
+    DATE=`date +%Y-%m-%d_%H-%M`
     import -window root "$HOME/Bureau/screenshot_$DATE.png"
 }
 
