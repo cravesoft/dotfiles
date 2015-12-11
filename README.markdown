@@ -6,6 +6,7 @@ Installation:
 
 Create symlinks:
 
+    ln -s ~/dotfiles/bin ~/bin
     ln -s ~/dotfiles/bash/bashrc ~/.bashrc
     ln -s ~/dotfiles/bash/aliases ~/.bash_aliases
     ln -s ~/dotfiles/vim ~/.vim
