@@ -11,6 +11,7 @@ Create symlinks:
     ln -s ~/dotfiles/bash/aliases ~/.bash_aliases
     ln -s ~/dotfiles/vim ~/.vim
     ln -s ~/dotfiles/vim/vimrc ~/.vimrc
+    ln -s ~/dotfiles/vim/editorconfig ~/.editorconfig
     ln -s ~/dotfiles/i3/config ~/.i3/config
     ln -s ~/dotfiles/git/config ~/.gitconfig
     ln -s ~/dotfiles/git/template ~/.git_template

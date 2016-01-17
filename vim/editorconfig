@@ -1,0 +1,26 @@
+# For more information about the properties used in
+# this file, please see the EditorConfig documentation:
+# http://editorconfig.org/
+
+# top-most EditorConfig file
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = false
+trim_trailing_whitespace = true
+indent_size = 4
+indent_style = space
+
+[*.md]
+# Markdown uses the trailing whitespaces
+# https://daringfireball.net/projects/markdown/syntax#block
+trim_trailing_whitespace = false
+
+[Makefile]
+indent_style = tab
+
+[{package.json,.travis.yml}]
+indent_style = space
+indent_size = 2
