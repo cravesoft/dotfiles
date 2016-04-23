@@ -6,17 +6,12 @@ Installation:
 
 Create symlinks:
 
-    ln -s ~/dotfiles/bin ~/bin
-    ln -s ~/dotfiles/bash/bashrc ~/.bashrc
-    ln -s ~/dotfiles/bash/aliases ~/.bash_aliases
-    ln -s ~/dotfiles/vim ~/.vim
-    ln -s ~/dotfiles/vim/vimrc ~/.vimrc
-    ln -s ~/dotfiles/vim/editorconfig ~/.editorconfig
-    ln -s ~/dotfiles/i3/config ~/.i3/config
-    ln -s ~/dotfiles/git/config ~/.gitconfig
-    ln -s ~/dotfiles/git/template ~/.git_template
-    ln -s ~/dotfiles/git/ignore ~/.gitignore
-    ln -s ~/dotfiles/gdb/gdbinit ~/.gdbinit
+    stow bash
+    stow bin
+    stow gdb
+    stow git
+    stow i3
+    stow vim
 
 Switch to the `~/dotfiles` directory, and fetch submodules:
 

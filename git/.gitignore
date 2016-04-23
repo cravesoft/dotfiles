@@ -4,4 +4,4 @@
 Session.vim
 .netrwhist
 *~
-vim/bundle/*
+vim/.vim/bundle/*

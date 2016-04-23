@@ -78,14 +78,15 @@ function install_packages()
 {
 
     sudo apt-get update
-    sudo apt-get install -y apt-file audacity automake blender build-essential \
-        cgdb cifs-utils cmake colorgcc curl dos2unix doxygen exuberant-ctags \
-        gawk gdbserver gdmap gimp git gitk gparted graphviz grc gtk-chtheme \
-        html-xml-utils htop i3 i3lock inkscape irssi keepassx libprotobuf-dev \
-        libqt4-dev lxappearance manpages-posix maven mercurial moc multitail \
-        ncdu nginx python2.7 python-dev python-pip pv qt4-qtconfig recode ruby \
-        sox sqlitebrowser subversion synaptic tig tmux tree \
-        ubuntu-restricted-extras unrar valgrind vim-gnome vlc wajig
+    sudo apt-get install -y apt-file audacity autoconf-archive automake \
+        blender build-essential cgdb cifs-utils cmake colorgcc curl dos2unix \
+        doxygen exuberant-ctags gawk gdbserver gdmap gimp git gitk gparted \
+        graphviz grc gtk-chtheme hstopo html-xml-utils htop i3 i3lock \
+        inkscape irssi keepassx libprotobuf-dev libqt4-dev lxappearance \
+        manpages-posix maven mercurial moc multitail ncdu nginx python2.7 \
+        python-dev python-pip pv qt4-qtconfig recode ruby sox sqlitebrowser \
+        stow subversion synaptic tig tmux tree ubuntu-restricted-extras unrar \
+        valgrind vim-gnome vlc wajig
 }
 
 function setup_node()
@@ -134,16 +135,12 @@ function install_dotfiles()
     && read -p "Create a new profile in Gnome Terminal and press [Enter]" \
     && ~/dotfiles/utils/gnome-terminal-colors-solarized/install.sh \
     && rm ~/.bashrc \
-    && ln -s ~/dotfiles/bin/ ~/bin \
-    && ln -s ~/dotfiles/bash/bashrc ~/.bashrc \
-    && ln -s ~/dotfiles/bash/aliases ~/.bash_aliases \
-    && ln -s ~/dotfiles/vim ~/.vim \
-    && ln -s ~/dotfiles/vim/vimrc ~/.vimrc \
-    && mkdir -p ~/.i3 \
-    && ln -s ~/dotfiles/i3/config ~/.i3/config \
-    && ln -s ~/dotfiles/git/config ~/.gitconfig \
-    && ln -s ~/dotfiles/git/template ~/.git_template \
-    && ln -s ~/dotfiles/git/ignore ~/.gitignore
+    && stow bash \
+    && stow bin \
+    && stow gdb \
+    && stow git \
+    && stow i3 \
+    && stow vim \
 }
 
 function upgrade_dist()

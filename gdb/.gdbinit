@@ -1,5 +1,5 @@
-source ~/dotfiles/gdb/pal_thread.gdb
-source ~/dotfiles/gdb/stl-views-1.0.3.gdb
+source ~/.gdb/pal_thread.gdb
+source ~/.gdb/stl-views-1.0.3.gdb
 
 python
 
