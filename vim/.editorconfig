@@ -24,3 +24,6 @@ indent_style = tab
 [{package.json,.travis.yml}]
 indent_style = space
 indent_size = 2
+
+[*.{rc,mk}]
+indent_style = tab
