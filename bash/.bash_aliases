@@ -6,6 +6,8 @@ alias gt='gnome-terminal'
 
 alias xdg='xdg-open'
 
+alias git='LANG=en_GB git'
+
 # Enable PHP to be used with the mongoose server
 alias mongoose_php="mongoose -C cgi,php -I /usr/local/bin/php-cgi"
 
