@@ -1,7 +1,8 @@
 .gitignore
-*.s[a-w][a-z]
 *.un~
 Session.vim
 .netrwhist
 *~
 vim/.vim/bundle/*
+.editorconfig
+*.swp
