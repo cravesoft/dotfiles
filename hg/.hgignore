@@ -1,0 +1,6 @@
+syntax: glob
+
+Ogre.log
+.DS_Store
+*.un~
+.editorconfig

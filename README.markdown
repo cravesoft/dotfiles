@@ -10,6 +10,7 @@ Create symlinks:
     stow bin
     stow gdb
     stow git
+    stow hg
     stow i3
     stow vim
 
