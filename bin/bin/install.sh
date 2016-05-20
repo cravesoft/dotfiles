@@ -85,8 +85,8 @@ function install_packages()
         inkscape irssi keepassx libprotobuf-dev libqt4-dev lxappearance \
         manpages-posix maven mercurial moc multitail ncdu nginx python2.7 \
         python-dev python-pip pv qt4-qtconfig recode ruby sox sqlitebrowser \
-        stow subversion synaptic tig tmux tree ubuntu-restricted-extras unrar \
-        valgrind vim-gnome vlc wajig
+        stow stress subversion synaptic tig tmux tree ubuntu-restricted-extras \
+        unrar valgrind vim-gnome vlc wajig
 }
 
 function setup_node()
