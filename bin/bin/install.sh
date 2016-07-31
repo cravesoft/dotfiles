@@ -32,7 +32,7 @@ function install_google_chrome()
     # Setup key
     wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
     # Setup repository for Google Chrome
-    sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+    sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
     sudo apt-get update
     sudo apt-get install google-chrome-unstable
 }
@@ -43,7 +43,7 @@ function install_google_musicmanager()
     # Setup key
     wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
     # Setup repository for Google Music Manager
-    sudo sh -c 'echo "deb http://dl.google.com/linux/musicmanager/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+    sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/musicmanager/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
     sudo apt-get update
     sudo apt-get install google-musicmanager-beta
 }
@@ -76,12 +76,11 @@ function install_java()
 
 function install_packages()
 {
-
     sudo apt-get update
     sudo apt-get install -y apt-file audacity autoconf-archive automake \
         blender build-essential cgdb cifs-utils cmake colorgcc curl dos2unix \
         doxygen exuberant-ctags gawk gdbserver gdmap gimp git gitk gparted \
-        graphviz grc gtk-chtheme hstopo html-xml-utils htop i3 i3lock \
+        graphviz grc gtk-chtheme html-xml-utils htop i3 i3lock \
         inkscape irssi keepassx libprotobuf-dev libqt4-dev lxappearance \
         manpages-posix maven mercurial moc multitail ncdu nginx python2.7 \
         python-dev python-pip pv qt4-qtconfig recode ruby sox sqlitebrowser \
@@ -91,13 +90,15 @@ function install_packages()
 
 function setup_node()
 {
-    curl https://raw.githubusercontent.com/creationix/nvm/v0.12.2/install.sh | bash
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.4/install.sh | bash
     source ~/.bashrc
-    nvm install 0.10
-    nvm use 0.10
-    npm install -g coffee-script
-    npm install -g grunt-cli
-    npm install -g bower
+    nvm install node
+    nvm use node
+}
+
+function setup_i3()
+{
+    gsettings set org.gnome.desktop.background show-desktop-icons false
 }
 
 function setup_python()
@@ -130,10 +131,6 @@ function install_dotfiles()
     && git submodule update \
     && git submodule foreach git checkout master \
     && git submodule foreach git pull \
-    && cd ~/dotfiles/utils/stderred \
-    && make \
-    && read -p "Create a new profile in Gnome Terminal and press [Enter]" \
-    && ~/dotfiles/utils/gnome-terminal-colors-solarized/install.sh \
     && rm ~/.bashrc \
     && stow bash \
     && stow bin \
@@ -141,6 +138,7 @@ function install_dotfiles()
     && stow git \
     && stow i3 \
     && stow vim \
+    && vim +PluginInstall +qall
 }
 
 function upgrade_dist()
@@ -170,6 +168,7 @@ setup_ssh
 
 install_dotfiles
 
+setup_i3
 setup_python
 setup_node
 #setup_wine

@@ -4,7 +4,7 @@ Installation:
 
     git clone git://github.com/cravesoft/dotfiles.git ~/dotfiles
 
-Create symlinks:
+Switch to the `~/dotfiles` directory, and create symlinks:
 
     stow bash
     stow bin
@@ -23,7 +23,3 @@ Switch to the `~/dotfiles` directory, and fetch submodules:
 Install vim plugins:
 
     vim +PluginInstall +qall
-
-Set a local node prefix:
-
-    echo prefix = ~/.node >> ~/.npmrc
