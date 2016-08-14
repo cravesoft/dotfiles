@@ -57,6 +57,14 @@ function install_spotify()
     sudo apt-get install spotify-client
 }
 
+# Configure a new PPA and install drive
+function install_drive()
+{
+    sudo add-apt-repository ppa:twodopeshaggy/drive
+    sudo apt-get update
+    sudo apt-get install drive
+}
+
 # Configure a new PPA to provide testing versions of
 # packages for Qt and install Ubuntu SDK
 function install_qt()
@@ -149,6 +157,7 @@ if [ "1" = "${INSTALL_ALL}" ]; then
     install_google_musicmanager
     install_spotify
 fi
+install_drive
 install_google_chrome
 install_qt
 install_java
