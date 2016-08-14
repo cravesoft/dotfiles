@@ -65,15 +65,6 @@ function install_drive()
     sudo apt-get install drive
 }
 
-# Configure a new PPA to provide testing versions of
-# packages for Qt and install Ubuntu SDK
-function install_qt()
-{
-    sudo add-apt-repository ppa:ubuntu-sdk-team/ppa
-    sudo apt-get update
-    sudo apt-get install ubuntu-sdk
-}
-
 # Configure a new PPA and install Oracle Java
 function install_java()
 {
@@ -159,7 +150,6 @@ if [ "1" = "${INSTALL_ALL}" ]; then
 fi
 install_drive
 install_google_chrome
-install_qt
 install_java
 install_packages
 upgrade_dist
