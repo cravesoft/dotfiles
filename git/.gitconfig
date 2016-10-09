@@ -13,7 +13,7 @@
 	templatedir = ~/.git_template
 [alias]
 	ctags = !.git/hooks/ctags
-    st = status
+    st = status --short --branch
     ci = commit
     br = branch
     co = checkout
