@@ -9,7 +9,8 @@ ignore = ~/.hgignore
 [extensions]
 # uncomment these lines to enable some popular extensions
 # (see "hg help extensions" for more info)
+color =
 pager =
 progress =
-color =
+record =
 strip =
