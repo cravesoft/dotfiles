@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+alias psthread='ps Hax kcls --format tid,pid,cls,pri,rtprio,comm'
+
 alias vi='vim'
 
 alias gt='gnome-terminal'
