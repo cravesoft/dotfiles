@@ -160,23 +160,20 @@ fi
 
 export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 
-if [ `id -u` != '0' ]; then
-
-  export VIRTUALENV_USE_DISTRIBUTE=1        # <-- Always use pip/distribute
-
-  export WORKON_HOME=$HOME/.virtualenvs       # <-- Where all virtualenvs will be stored
-
-  source /usr/local/bin/virtualenvwrapper.sh
-
-  export PIP_VIRTUALENV_BASE=$WORKON_HOME
-
-  export PIP_RESPECT_VIRTUALENV=true
-
-fi
-
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
 export NVM_DIR=$HOME/.nvm
 source $HOME/.nvm/nvm.sh
 #nvm use 0.10
+
+# pyenv
+export PATH="/home/boule/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+# added by pipsi (https://github.com/mitsuhiko/pipsi)
+export PATH="/home/boule/.local/bin:$PATH"
+
+# pipenv
+eval "$(pipenv --completion)"

@@ -76,7 +76,7 @@ function install_java()
 function install_packages()
 {
     sudo apt-get update
-    sudo apt-get install -y apt-file audacity autoconf-archive automake blender blueman build-essential cgdb cifs-utils cmake colorgcc cscope curl dos2unix doxygen exuberant-ctags gawk gdbserver gdmap gimp git gitk gparted graphviz grc gtk-chtheme html-xml-utils htop i3 i3lock inkscape irssi keepassx libprotobuf-dev libqt4-dev lxappearance manpages-posix maven mercurial moc multitail ncdu nginx python2.7 python-dev python-pip pv qt4-qtconfig ranger recode ruby shellcheck sox sqlitebrowser stow stress subversion synaptic tig tmux tree ubuntu-restricted-extras unrar valgrind vim-gnome vlc wajig
+    sudo apt-get install -y apt-file audacity autoconf-archive automake blender blueman build-essential cgdb cifs-utils cmake colorgcc cscope curl dos2unix doxygen exuberant-ctags gawk gdbserver gdmap gimp git gitk gparted graphviz grc gtk-chtheme html-xml-utils htop i3 i3lock inkscape irssi keepassx libprotobuf-dev libqt4-dev libbz2-dev libreadline6-dev libsqlite3-dev lxappearance manpages-posix maven mercurial moc multitail ncdu nginx pv qt4-qtconfig ranger recode ruby shellcheck sox sqlitebrowser stow stress subversion synaptic tig tmux tree ubuntu-restricted-extras unrar valgrind vim-gnome vlc wajig
 }
 
 function setup_node()
@@ -94,7 +94,23 @@ function setup_i3()
 
 function setup_python()
 {
-    sudo pip install virtualenv virtualenvwrapper
+    # install and update pyenv
+    curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
+    pyenv update
+
+    # install latest python versions
+    pyenv install 3.6.5
+    pyenv install 2.7.15
+
+    # use latest python 3.x version by default
+    pyenv global 3.6.5
+
+    # install pipsy
+    curl https://raw.githubusercontent.com/mitsuhiko/pipsi/master/get-pipsi.py | python
+
+    # install pipenv
+    pipsi install pew
+    pipsi install pipenv
 }
 
 function setup_wine()
