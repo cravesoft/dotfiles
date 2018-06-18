@@ -168,12 +168,12 @@ source $HOME/.nvm/nvm.sh
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # pyenv
-export PATH="/home/boule/.pyenv/bin:$PATH"
+export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 # added by pipsi (https://github.com/mitsuhiko/pipsi)
-export PATH="/home/boule/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 # pipenv
 eval "$(pipenv --completion)"
