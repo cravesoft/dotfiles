@@ -87,7 +87,6 @@ function install_packages()
         cgdb \
         cifs-utils \
         cmake \
-        colorgcc \
         cscope \
         curl \
         dos2unix \
@@ -113,7 +112,7 @@ function install_packages()
         libprotobuf-dev \
         libqt4-dev \
         libbz2-dev \
-        libreadline6-dev \
+        libreadline-dev \
         libsqlite3-dev \
         lxappearance \
         manpages-posix \
