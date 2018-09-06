@@ -173,4 +173,6 @@ exec --no-startup-id nm-applet
 exec --no-startup-id gnome-sound-applet
 exec --no-startup-id blueman-applet
 exec --no-startup-id unity-settings-daemon
+exec --no-startup-id dropbox start
+exec --no-startup-id redshift-gtk
 new_window 1pixel
