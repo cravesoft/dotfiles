@@ -12,6 +12,7 @@ Switch to the `~/dotfiles` directory, and create symlinks:
     stow git
     stow hg
     stow i3
+    stow redshift
     stow vim
 
 Switch to the `~/dotfiles` directory, and fetch submodules:

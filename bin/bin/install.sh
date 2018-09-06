@@ -126,6 +126,8 @@ function install_packages()
         qt4-qtconfig \
         ranger \
         recode \
+        redshift \
+        redshift-gtk \
         ruby \
         shellcheck \
         sox \
