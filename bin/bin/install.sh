@@ -213,6 +213,7 @@ function install_dotfiles()
     && stow gdb \
     && stow git \
     && stow i3 \
+    && stow ipython \
     && stow vim \
     && vim +PluginInstall +qall
 }
