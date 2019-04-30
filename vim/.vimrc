@@ -1,57 +1,59 @@
 " Gotta be first
 set nocompatible
 
-filetype off
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-Plugin 'gmarik/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 
 " ----- Making Vim look good ------------------------------------------
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'tomasr/molokai'
+Plug 'altercation/vim-colors-solarized'
+Plug 'tomasr/molokai'
 
 " ----- Vim as a programmer's text editor -----------------------------
-Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'scrooloose/syntastic'
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-easytags'
-Plugin 'majutsushi/tagbar'
-Plugin 'kien/ctrlp.vim'
-Plugin 'vim-scripts/a.vim'
-Plugin 'editorconfig/editorconfig-vim'
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'scrooloose/syntastic'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-easytags'
+Plug 'majutsushi/tagbar'
+Plug 'kien/ctrlp.vim'
+Plug 'vim-scripts/a.vim'
+Plug 'editorconfig/editorconfig-vim'
 
 " ----- Working with Git ----------------------------------------------
-Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 
 " ----- Syntax plugins ------------------------------------------------
-Plugin 'digitaltoad/vim-jade'
-Plugin 'cakebaker/scss-syntax.vim'
+Plug 'digitaltoad/vim-jade'
+Plug 'cakebaker/scss-syntax.vim'
 
 " ---- Extras/Advanced plugins ----------------------------------------
 " Highlight and strip trailing whitespace
-Plugin 'ntpeters/vim-better-whitespace'
+Plug 'ntpeters/vim-better-whitespace'
 " Easily surround chunks of text
-Plugin 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 " Align CSV files at commas, align Markdown tables, and more
-Plugin 'godlygeek/tabular'
+Plug 'godlygeek/tabular'
 " Enable repeating supported plugin maps with "."
-Plugin 'tpope/vim-repeat'
+Plug 'tpope/vim-repeat'
 " Intensely orgasmic commenting
-Plugin 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdcommenter'
 " Tiled Window Management for Vim
-Plugin 'spolu/dwm.vim'
-"" Make gvim-only colorschemes work transparently in terminal vim
-Plugin 'godlygeek/csapprox'
+Plug 'spolu/dwm.vim'
+" Make gvim-only colorschemes work transparently in terminal vim
+Plug 'godlygeek/csapprox'
 " Pairs of handy bracket mappings
-Plugin 'tpope/vim-unimpaired'
+Plug 'tpope/vim-unimpaired'
+" Code completion
+Plug 'valloric/youcompleteme'
 
-call vundle#end()
+call plug#end()
 
-filetype plugin indent on
 " Only do this part when compiled with support for autocommands
 "if has("autocmd")
 "    " Enable file type detection

@@ -4,6 +4,3 @@
 [submodule "utils/kdevelop"]
 	path = utils/kdevelop
 	url = git://anongit.kde.org/kdevelop
-[submodule "vim/.vim/bundle/Vundle.vim"]
-	path = vim/.vim/bundle/Vundle.vim
-	url = git://github.com/gmarik/Vundle.vim
