@@ -248,3 +248,6 @@ set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 " ----- a.vim settings -----
 let g:alternateExtensions_cc = "hh"
 let g:alternateExtensions_hh = "cc"
+
+" ----- youcompleteme settings -----
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/youcompleteme/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
