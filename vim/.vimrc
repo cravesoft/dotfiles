@@ -138,6 +138,9 @@ set smartindent
 " Increase history from 20 default to 1000
 set history=1000
 
+" Search relative to current file + directory
+set path=.,**
+
 " Turn on omnicompletion
 "set ofu=syntaxcomplete#Complete
 
