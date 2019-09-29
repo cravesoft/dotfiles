@@ -143,10 +143,6 @@ export LSCOLORS=ExGxFxDxCxHxHxCbCeEbEb
 GIT_PS1_SHOWDIRTYSTATE=TRUE
 export PS1='\[\033[01;32m\][\u]\[\033[00m\]\[\033[01;34m\]\w\[\033[01;33m\]$(__git_ps1 "(%s)")\[\033[00m\]$ '
 
-export PATH=$HOME/bin:$HOME/dotfiles/bin:$PATH
-
-export PATH=$HOME/.node/bin:$PATH
-
 export NODE_PATH=$NODE_PATH:$HOME/.node/lib/node_modules
 
 #export LANG=en_US.utf8
