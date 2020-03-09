@@ -2,7 +2,13 @@
 
 My dotfiles (.bashrc, .vimrc, .i3, ...)
 
-# Installation
+# Automatic installation
+
+Run the install script:
+
+    curl -o- https://raw.githubusercontent.com/cravesoft/dotfiles/master/bin/.local/bin/install.sh | bash
+
+# Manual installation
 
 ## Get the source
 
@@ -33,7 +39,7 @@ Switch to the `~/dotfiles` directory, and fetch submodules:
 
 To be able to uninstall, create a new Gnome Terminal profile, using the menus in Gnome Terminal.
 
-Then clone the repository and run the installation script:
+Then run the installation script:
 
     cd utils/gnome-terminal-colors-solarized
     ./install.sh

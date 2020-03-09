@@ -1,81 +1,38 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #########################################################
 ## This shell script is used to automatically configure
 ## an operating system running Ubuntu.
 #########################################################
 
-# Enable debug mode
+# enable debug mode
 #set -x
 
-INSTALL_ALL=0
-
-function usage()
+install_google_chrome()
 {
-    echo "$(basename $0): usage"
-    echo "$(basename $0) [-a] -> download and install packages and dotfiles"
-}
-
-# Check if -a option is passed
-while getopts a option
-do
-    case "$option" in
-        a) INSTALL_ALL=1 ; ;;
-        [?]) usage
-            exit 1;;
-    esac
-done
-
-# Configure a new PPA and install Google Chrome
-function install_google_chrome()
-{
-    # Setup key
+    echo "Installing Google Chrome"
+    # setup key
     wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-    # Setup repository for Google Chrome
-    sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+    # setup repository for Google Chrome
+    sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list'
     sudo apt-get update
     sudo apt-get install google-chrome-unstable
 }
 
-# Configure a new PPA and install Google Music Manager
-function install_google_musicmanager()
+install_google_drive()
 {
-    # Setup key
-    wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-    # Setup repository for Google Music Manager
-    sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/musicmanager/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
-    sudo apt-get update
-    sudo apt-get install google-musicmanager-beta
-}
-
-# Configure a new PPA and install Spotify
-function install_spotify()
-{
-    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 94558F59
-    sudo sh -c 'echo "deb http://repository.spotify.com stable non-free" >> /etc/apt/sources.list.d/spotify.list'
-    sudo apt-get update
-    sudo apt-get install spotify-client
-}
-
-# Configure a new PPA and install drive
-function install_drive()
-{
+    echo "Installing Google Drive"
     sudo add-apt-repository ppa:twodopeshaggy/drive
     sudo apt-get update
     sudo apt-get install drive
 }
 
-# Configure a new PPA and install Oracle Java
-function install_java()
+install_packages()
 {
-    sudo add-apt-repository ppa:webupd8team/java
+    echo "Downloading package information"
     sudo apt-get update
-    sudo apt-get install oracle-java6-installer
-}
 
-function install_packages()
-{
-    sudo apt-get update
+    echo "Installing packages"
     sudo apt-get install -y \
         apt-file \
         audacity \
@@ -120,9 +77,11 @@ function install_packages()
         mercurial \
         moc \
         multitail \
+        nautilus-dropbox \
         ncdu \
         nginx \
         pv \
+        python3-dev \
         qt4-qtconfig \
         ranger \
         recode \
@@ -134,6 +93,7 @@ function install_packages()
         sqlitebrowser \
         stow \
         stress \
+        suckless-tools \
         subversion \
         synaptic \
         tig \
@@ -148,104 +108,79 @@ function install_packages()
         wajig
 }
 
-function setup_node()
+setup_node()
 {
-    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.4/install.sh | bash
-    source ~/.bashrc
+    echo "Installing nvm"
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+
+    echo "Installing node.js"
+    export NODE_PATH=$NODE_PATH:$HOME/.node/lib/node_modules
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
     nvm install node
     nvm use node
 }
 
-function setup_i3()
+setup_i3()
 {
+    echo "Configuring i3"
     gsettings set org.gnome.desktop.background show-desktop-icons false
 }
 
-function setup_python()
+setup_ssh()
 {
-    # install and update pyenv
-    curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
-    pyenv update
-
-    # install latest python versions
-    pyenv install 3.6.5
-    pyenv install 2.7.15
-
-    # use latest python 3.x version by default
-    pyenv global 3.6.5
-
-    # install pipsy
-    curl https://raw.githubusercontent.com/mitsuhiko/pipsi/master/get-pipsi.py | python
-
-    # install pipenv
-    pipsi install pew
-    pipsi install pipenv
+    echo "Generating key for ssh"
+    ssh-keygen -t rsa -C "cravesoft@gmail.com"
+    cd ~/.ssh || exit 1
+    ssh-add id_rsa
 }
 
-function setup_wine()
+install_dotfiles()
 {
-    # Install MS Arial, Courier, Times fonts (Microsoft, 2008)
-    winetricks corefonts
-    # Install MS Visual J# 2.0 SE libraries (requires dotnet20)
-    winetricks vcrun6
+    read -r -p "Add SSH key to Github and press [Enter]"
+    cd || exit 1
+    echo "Cloning dotfiles repository"
+    git clone git@github.com:cravesoft/dotfiles.git
+    echo "Creating symlinks"
+    cd ~/dotfiles || exit 1
+    rm -f ~/.bashrc
+    stow bash
+    stow bin
+    stow git
+    stow hg
+    stow i3
+    stow ipython
+    stow redshift
+    stow vim
 }
 
-function setup_ssh()
+upgrade_packages()
 {
-    ssh-keygen -t rsa -C "cravesoft@gmail.com" \
-    && cd ~/.ssh \
-    && ssh-add id_rsa
-}
-
-function install_dotfiles()
-{
-    read -p "Add SSH key to Github and press [Enter]"
-    cd \
-    && git clone git@github.com:cravesoft/dotfiles.git \
-    && cd ~/dotfiles \
-    && git submodule init \
-    && git submodule update \
-    && git submodule foreach git checkout master \
-    && git submodule foreach git pull \
-    && rm ~/.bashrc \
-    && stow bash \
-    && stow bin \
-    && stow gdb \
-    && stow git \
-    && stow i3 \
-    && stow ipython \
-    && stow vim \
-    && vim +PluginInstall +qall
-}
-
-function upgrade_dist()
-{
+    echo "Upgrading packages"
     sudo apt-get update
     sudo apt-get dist-upgrade
-}
-
-function clean_packages()
-{
     sudo apt-get autoremove
     sudo apt-get autoclean
 }
 
-if [ "1" = "${INSTALL_ALL}" ]; then
-    install_google_musicmanager
-    install_spotify
-fi
-install_drive
+install_solarized()
+{
+    echo "Installing solarized"
+    cd ~/dotfiles || exit 1
+    git submodule init
+    git submodule update
+    git submodule foreach git checkout master
+    git submodule foreach git pull
+    read -r -p "Create a new Gnome Terminal profile and press [Enter]"
+    cd utils/gnome-terminal-colors-solarized || exit 1
+    ./install.sh
+}
+
 install_google_chrome
-install_java
+install_google_drive
 install_packages
-upgrade_dist
-clean_packages
-
+upgrade_packages
 setup_ssh
-
-install_dotfiles
-
-setup_i3
-setup_python
 setup_node
-#setup_wine
+setup_i3
+install_dotfiles
