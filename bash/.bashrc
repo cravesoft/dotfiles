@@ -97,34 +97,21 @@ set completion-query-items 10000
 bind 'set completion-ignore-case on'
 
 export EDITOR=vim
-export CLICOLOR=1
-export LSCOLORS=ExGxFxDxCxHxHxCbCeEbEb
+#export CLICOLOR=1
+#export LSCOLORS=ExGxFxDxCxHxHxCbCeEbEb
+export LANG=en_US.utf8
+export LC_ALL=en_US.utf8
+export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 
-# GIT
+# Git
 GIT_PS1_SHOWDIRTYSTATE=TRUE
 export PS1='\[\033[01;32m\][\u]\[\033[00m\]\[\033[01;34m\]\w\[\033[01;33m\]$(__git_ps1 "(%s)")\[\033[00m\]$ '
 
+# Node.js
 export NODE_PATH=$NODE_PATH:$HOME/.node/lib/node_modules
-
-#export LANG=en_US.utf8
-#export LC_ALL=en_US.utf8
-
-export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# pyenv
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
-# added by pipsi (https://github.com/mitsuhiko/pipsi)
-export PATH="$HOME/.local/bin:$PATH"
-
-# pipenv
-eval "$(pipenv --completion)"
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
