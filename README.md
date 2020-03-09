@@ -8,7 +8,6 @@ Switch to the `~/dotfiles` directory, and create symlinks:
 
     stow bash
     stow bin
-    stow gdb
     stow git
     stow hg
     stow i3
