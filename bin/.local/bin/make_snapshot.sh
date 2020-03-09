@@ -1,6 +1,7 @@
 #!/bin/bash
-SOURCE_PATH="/home/boule"
-DESTINATION_PATH="/media/boule/WDPassport/home"
+
+SOURCE_PATH="$1"
+DESTINATION_PATH="$2"
 
 # Check that destination path is valid
 if [ ! -e "$DESTINATION_PATH" ]

@@ -1,3 +1,4 @@
 #!/bin/bash
-DATE=`date +%Y-%m-%d\ %H-%M`
-import -window root "$HOME/Bureau/screenshot_$DATE.png"
+
+DATE=`date -Is`
+import -window root "$HOME/Images/screenshot_$DATE.png"
