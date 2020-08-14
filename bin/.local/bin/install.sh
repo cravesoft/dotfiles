@@ -67,7 +67,6 @@ install_packages()
         irssi \
         keepassx \
         libprotobuf-dev \
-        libqt4-dev \
         libbz2-dev \
         libreadline-dev \
         libsqlite3-dev \
@@ -82,7 +81,6 @@ install_packages()
         nginx \
         pv \
         python3-dev \
-        qt4-qtconfig \
         ranger \
         recode \
         redshift \
@@ -103,7 +101,8 @@ install_packages()
         units \
         unrar \
         valgrind \
-        vim-gnome \
+        vim \
+        vim-gtk \
         vlc \
         wajig
 }
